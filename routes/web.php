@@ -13,7 +13,6 @@ Route::prefix('admin')->namespace('Admin')->middleware(['admin', 'prevent-back-h
     Route::get('/dashboard', 'AdminDashboardController@index');
     Route::get('admin_users/{user_id}/set-password', 'AdminUserController@setPassword');
     Route::post('admin_users/{user_id}/set-password', 'AdminUserController@newPassword');
-    Route::resource('/admin_users/{id}/manage', 'AdminUserManageController');
     Route::post('/admin_users/bulk-delete', 'AdminUserController@bulkDelete');
     Route::resource('/admin_users', 'AdminUserController');
   

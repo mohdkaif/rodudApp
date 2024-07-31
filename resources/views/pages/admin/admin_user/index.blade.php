@@ -64,18 +64,18 @@
                                 </td>
                                 <td class="text-center">
                                     <div class="btn-group btn-group-sm" role="group">
-                                        <a class="btn btn-icon" href="javascript:void(0);" data-url="{{ url('admin/admin_users/' . ___encrypt($user->id)) }}" data-method="GET" data-request="ajax-confirm" data-ask_image="warning" data-ask="Are you sure you want to Sent Mail?" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="Send EMail Verification Link">
+                                        {{-- <a class="btn btn-icon" href="javascript:void(0);" data-url="{{ url('admin/admin_users/' . ___encrypt($user->id)) }}" data-method="GET" data-request="ajax-confirm" data-ask_image="warning" data-ask="Are you sure you want to Sent Mail?" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="Send EMail Verification Link">
                                             <i class="fas fa-redo text-secondary"></i>
                                         </a>
                                         <a class="btn btn-icon" href="javascript:void(0);" data-url="{{ url('admin/admin_users/' . ___encrypt($user->id) . '?reset_password=yes') }}" data-method="GET" data-request="ajax-confirm" data-ask_image="warning" data-ask="Are you sure you want to Sent Mail?" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="Send Reset Password Link">
                                             <i class="fas fa-user-lock text-secondary"></i>
-                                        </a>
+                                        </a> --}}
                                         <a class="btn btn-icon" href="{{ url('admin/admin_users/' . ___encrypt($user->id) . '/edit') }}" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Edit Profile">
                                             <i class="fas fa-edit text-secondary"></i>
                                         </a>
-                                        <a class="btn btn-icon" href="{{ url('/admin/admin_users/' . ___encrypt($user->id) . '/set-password') }}" class="btn btn-icon" data-toggle="tooltip" data-placement="bottom" title="Set New Password">
+                                        {{-- <a class="btn btn-icon" href="{{ url('/admin/admin_users/' . ___encrypt($user->id) . '/set-password') }}" class="btn btn-icon" data-toggle="tooltip" data-placement="bottom" title="Set New Password">
                                             <i class="fas fa-unlock text-secondary"></i>
-                                        </a>
+                                        </a> --}}
                                         <a class="btn btn-icon" href="javascript:void(0);" data-url="{{ url('admin/admin_users/' . ___encrypt($user->id)) }}" data-method="DELETE" data-request="ajax-confirm" data-ask_image="warning" data-ask="Are you sure you want to delete?" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="Delete User">
                                             <i class="fas fa-trash text-secondary"></i>
                                         </a>

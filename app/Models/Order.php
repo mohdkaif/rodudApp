@@ -14,6 +14,7 @@ class Order extends Model
         'delivery_address',
         'size',
         'weight',
+        'status',
         'delivery_date_time',
         'pickup_date_time',
     ];
