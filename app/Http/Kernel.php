@@ -13,6 +13,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \App\Http\Middleware\Cors::class,
     ];
 
     protected $middlewareGroups = [
@@ -27,6 +28,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\SessionExpired::class
         ],
         'api' => [
+            \Fruitcake\Cors\HandleCors::class,
             //'throttle:100,1',
             'bindings',
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,

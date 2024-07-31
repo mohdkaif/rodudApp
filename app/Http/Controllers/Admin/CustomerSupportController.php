@@ -134,7 +134,7 @@ class CustomerSupportController extends Controller
             $users->status = $status;
             $users->save();
         } else {
-            User::destroy(___decrypt($id));
+            CustomerSupport::destroy(___decrypt($id));
         }
         $this->status = true;
         $this->modal = true;

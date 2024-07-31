@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class OrderController extends Controller
 {
@@ -37,8 +40,23 @@ class OrderController extends Controller
             $order['status'] = $request->status;
            
             $order['updated_by'] = Auth::user()->id;
-           
+
+            
+
             $order->save();
+            $status = str_replace('_', ' ', $request->status);
+            $status = ucwords($status);
+            $user = User::where('id',$order->user_id)->first();
+            $data = [
+                'status' => $status,
+                'first_name' => $user->first_name,
+                'url'=>url('/'),
+                'messageContent' => "your order status has been changed as $status",  // 'message' might be reserved, use 'messageContent' instead
+            ];
+        
+            Mail::send('email_templates.order_status', $data, function ($message) use ($user) {
+                $message->to($user->email)->subject('Order status change');
+            });
             $this->status = true;
             $this->modal = true;
             $this->redirect = url('admin/order_requests');
@@ -54,11 +72,11 @@ class OrderController extends Controller
             } else {
                 $status = 'active';
             }
-            $users = User::find(___decrypt($id));
+            $users = Order::find(___decrypt($id));
             $users->status = $status;
             $users->save();
         } else {
-            User::destroy(___decrypt($id));
+            Order::destroy(___decrypt($id));
         }
         $this->status = true;
         $this->modal = true;
@@ -75,8 +93,8 @@ class OrderController extends Controller
         }
         $update['updated_by'] = Auth::user()->id;
         $update['updated_at'] = now();
-        if (User::whereIn('id', $processIDS)->update($update)) {
-            User::destroy($processIDS);
+        if (Order::whereIn('id', $processIDS)->update($update)) {
+            Order::destroy($processIDS);
         }
         $this->status = true;
         $this->redirect = true;

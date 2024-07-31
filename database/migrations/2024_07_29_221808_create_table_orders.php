@@ -20,9 +20,9 @@ class CreateTableOrders extends Migration
             $table->string('delivery_address')->nullable();
             $table->string('size')->nullable();
             $table->string('weight')->nullable();
-            $table->timestamp('pickup_date_time')->nullable();
-            $table->timestamp('delivery_date_time')->nullable();
-            $table->enum('status', ['dispatched', 'inactive', 'pending','in_transit','cancelled','out_for_delivery','returned'])->default('pending');
+            $table->string('pickup_date_time')->nullable();
+            $table->string('delivery_date_time')->nullable();
+            $table->enum('status', ['dispatched', 'inactive', 'pending','in_transit','cancelled','out_for_delivery','returned','delivered'])->default('pending');
             $table->integer('updated_by')->default(0);
             $table->timestamps();
         });

@@ -59,13 +59,15 @@
                                     <tr>
                                         <td>
                                             <h1>Hi {{$first_name}},</h1>
-                                            <h2>Welcome to Rodud!</h2>
-                                            <p>Please click the link below to confirm your email and set up your new account.</p>
+                                            <h2>Order Status Change!</h2>
+                                            <p>{{$messageContent}}</p>
+
+                                            <p>Please click the link below to track your order.</p>
                                             <table border="0" cellpadding="0" cellspacing="0" class="btn btn-secondary">
                                                 <tbody>
                                                     <tr>
                                                         <td align="center">
-                                                            <a href="{{ $url }}" target="_blank" class="btn-secondary">Confirm Email</a>
+                                                            <a href="{{ $url }}" target="_blank" class="btn-secondary">{{$status}}</a>
                                                         </td>
                                                     </tr>
                                                 </tbody>

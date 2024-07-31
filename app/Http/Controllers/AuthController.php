@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -29,7 +30,19 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        $data = [
+            'url' =>url('/'),
+            'first_name' => $request->first_name,  // 'message' might be reserved, use 'messageContent' instead
+        ];
+    
+        Mail::send('email_templates.welcome_email', $data, function ($message) use ($request) {
+            $message->to($request->email)->subject('Welcome to Rodud');
+        });
+        // Mail::send('email_templates.welcome_email', [
+        //     'url' => $url
+        // ], function ($message) use ($request) {
+        //     $message->to($request->email)->subject('Welcome to MY_comp');
+        // });
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([

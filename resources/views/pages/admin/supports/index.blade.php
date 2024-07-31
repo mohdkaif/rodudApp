@@ -78,9 +78,7 @@ use Illuminate\Support\Str;
                                         <a class="btn btn-icon" href="{{ url('admin/customer_support/' . ___encrypt($support->id) . '/edit') }}" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Edit Profile">
                                             <i class="fas fa-edit text-secondary"></i>
                                         </a>
-                                        <a class="btn btn-icon" href="{{ url('/admin/customer_support/' . ___encrypt($support->id) . '/set-password') }}" class="btn btn-icon" data-toggle="tooltip" data-placement="bottom" title="Set New Password">
-                                            <i class="fas fa-unlock text-secondary"></i>
-                                        </a>
+                                       
                                         <a class="btn btn-icon" href="javascript:void(0);" data-url="{{ url('admin/customer_support/' . ___encrypt($support->id)) }}" data-method="DELETE" data-request="ajax-confirm" data-ask_image="warning" data-ask="Are you sure you want to delete?" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="Delete User">
                                             <i class="fas fa-trash text-secondary"></i>
                                         </a>
