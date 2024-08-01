@@ -65,6 +65,9 @@ php artisan serve
 ```
 http://localhost:8000/
 ```
+-For Login Credential admin login
+email: mohdkaif984@gmail.com 
+pass: password123
 
 -Api End Point
 
