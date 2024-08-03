@@ -128,8 +128,8 @@ $(document).on("click", '[data-request="ajax-submit"]', function () {
             $("#submit_button_id").show();
         },
     });
-    $("#submit_button_loader").hide();
-    $("#submit_button_id").show();
+    // $("#submit_button_loader").hide();
+    // $("#submit_button_id").show();
 });
 
 $(document).on("click", '[data-request="ajax-confirm"]', function () {
@@ -578,7 +578,6 @@ $(document).on("change", '[data-request="ajax-append-fields"]', function () {
     var $type = $this.data("type");
     var $count = $this.data("count");
     var $method = $this.data("method");
-    var $process_experiment_id = $this.data("process_experiment_id");
     if ($method == "") {
         $method = "GET";
     }
@@ -603,7 +602,6 @@ $(document).on("change", '[data-request="ajax-append-fields"]', function () {
             $("#process_simulation").val();
     }
     $formData.append("type", $type);
-    $formData.append("process_experiment_id", $process_experiment_id);
     $.ajax({
         url: $newurl,
         type: $method,

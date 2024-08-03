@@ -13,7 +13,7 @@
     
     justify-content: space-around;">
                             <div class="auth-left-wrapper"
-                                style="height:150px;width:150px;background-image: url({{ url('assets/images/rodud_logo.svg') }})">
+                                style="height:100px;width:200px;background-image: url({{ url('assets/images/rodud_logo.svg') }})">
 
                             </div>
                         </div>
@@ -69,7 +69,6 @@
                                     </label>
                                 </div>
                                 <div class="mt-3">
-                                    <!-- <a type="button" id="submit_button_id" data-request="ajax-submit" data-target='[role="login"]' class="btn btn-secondary mr-2 mb-2 mb-md-0">Login</a> -->
                                     <button type="submit" class="btn btn-primary" style="width:100%">
                                         Login
                                     </button>
