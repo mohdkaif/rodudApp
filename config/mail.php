@@ -19,4 +19,6 @@ return [
         ],
     ],
     'log_channel' => env('MAIL_LOG_CHANNEL'),
+    'admin_address' => env('MAIL_ADMIN_ADDRESS', 'admin@example.com'),
+
 ];
